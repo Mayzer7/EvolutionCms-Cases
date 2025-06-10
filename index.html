@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="img/favicon.png" type="image/x-icon">
+	<title>Навигация</title>
+	<style>
+		@font-face {
+			font-family: Inter;
+			font-display: swap;
+			src: url("../fonts/Inter-Light.woff2") format("woff2"),
+			     url("../fonts/Inter-Light.woff") format("woff");
+			font-weight: 300;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: Inter;
+			font-display: swap;
+			src: url("../fonts/Inter-Regular.woff2") format("woff2"),
+			     url("../fonts/Inter-Regular.woff") format("woff");
+			font-weight: 400;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: Inter;
+			font-display: swap;
+			src: url("../fonts/Inter-Medium.woff2") format("woff2"),
+			     url("../fonts/Inter-Medium.woff") format("woff");
+			font-weight: 500;
+			font-style: normal;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: "Inter", sans-serif;
+			background-color: #0d0d0d;
+			background-image: url("img/faq-bg.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			text-align: center;
+			padding: 1rem;
+			overflow: hidden;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+
+		h1 {
+			font-size: 2rem;
+			font-weight: 500;
+			margin-bottom: 1rem;
+			text-transform: uppercase;
+		}
+
+		a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 1.5rem;
+			font-weight: 400;
+			padding: 0.75rem 1.5rem;
+			border: 2px solid #fff;
+			border-radius: 12px;
+			transition: all 0.3s ease;
+		}
+
+		a:hover {
+			background-color: #fff;
+			color: #0d0d0d;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Сверстаны две страницы<br> для Evolution CMS:</h1>
+		<a href="ambassadors.html" target="_blank">1. Амбассадоры</a>
+		<a href="ambassador-person.html" target="_blank">2. Амбассадор</a>
+		<a href="works-on-evo.html" target="_blank">3. Работает на эво</a>
+	</div>
+</body>
+</html>
