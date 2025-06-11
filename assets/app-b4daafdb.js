@@ -4544,7 +4544,7 @@ function initSliders() {
       observer: true,
       observeParents: true,
       slidesPerView: 2,
-      spaceBetween: 60,
+      spaceBetween: 0,
       autoHeight: false,
       speed: 800,
       navigation: {
@@ -4576,6 +4576,43 @@ function initSliders() {
       }
     });
   }
+
+  // Слайдер "Похожие кейсы" на странице Открытый кейс
+
+  if (document.querySelector(".other-cases__slider")) {
+    new Swiper(".other-cases__slider", {
+      modules: [Navigation],
+      observer: true,
+      observeParents: true,
+      slidesPerView: 2.85,
+      spaceBetween: 30,
+      autoHeight: false,
+      speed: 800,
+      navigation: {
+        prevEl: ".companies__button--prev",
+        nextEl: ".companies__button--next"
+      },
+      breakpoints: {
+        320: {
+          spaceBetween: 20,
+          autoHeight: true
+        },
+        470: {
+          spaceBetween: 20
+        },
+        550: {
+          spaceBetween: 20
+        },
+        820: {
+          spaceBetween: 20
+        },
+        992: {
+          spaceBetween: 28
+        }
+      }
+    });
+  }
+
   if (document.querySelector(".companies-stats__slider")) {
     new Swiper(".companies-stats__slider", {
       modules: [Autoplay],

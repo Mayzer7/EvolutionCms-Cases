@@ -11686,7 +11686,7 @@ body::after {
 /* Страница "Работает на Эво" */
 
 .works-on-evo-container {
-  padding-bottom: 150px;
+  padding-bottom: 120px;
 }
 
 .works-on-evo-filters {
@@ -11864,12 +11864,19 @@ body::after {
   transform: translateZ(0);
 }
 
-.case-title {
+.case-title p {
+  margin-bottom: 8px;
   font-size: 26px;
   line-height: 34px;
-  margin-bottom: 8px;
   font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* количество строк */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
+
 
 .case-desc p {
   font-size: 18px;
@@ -11882,6 +11889,7 @@ body::after {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  word-break: break-word;
 }
 
 .case-banners-wrapper {
@@ -12146,4 +12154,222 @@ body::after {
   .works-on-evo-container {
     padding-bottom: 70px;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Страница "Открытый кейс" */
+
+.case-title-header {
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: 300;
+}
+
+/* Под шапкой */
+
+.header-right-side button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid #009688;
+  padding: 25px 45px;
+  border-radius: 100px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #009688;
+  transition: all 0.3s ease;
+}
+
+.header-right-side button:hover {
+  background-color: #009688;
+  color: #fff;
+}
+
+.header-right-side button svg path {
+  transition: fill 0.3s ease;
+}
+
+.header-right-side button:hover svg path {
+  fill: #fff;
+}
+
+.under-header-desc p {
+  font-size: 18px;
+  font-weight: 300;
+  max-width: 800px;
+  width: 100%;
+}
+
+.under-header-link {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.under-header-link button {
+  --icon-color: #009688;            
+  color: #ffffff;                   
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 11px 23px 12px 20px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 300;
+  transition: background-color 0.3s ease;
+}
+
+.under-header-link button svg path {
+  stroke: var(--icon-color);
+  transition: stroke 0.3s ease;
+}
+
+.under-header-link button:hover {
+  background-color: #009688;
+  --icon-color: #ffffff;
+}
+
+/* Баннеры */
+
+.open-case-banners {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.open-case-banner {
+  background-color: #009688;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.open-case-banner p {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 300;
+}
+
+
+/* Изображения кейса */
+
+.case-images {
+  margin-top: 40px;
+  
+}
+
+.case-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Скругление для первого изображения (верхние углы) */
+.case-images img:first-child {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Скругление для последнего изображения (нижние углы) */
+.case-images img:last-child {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+
+/* Блок "Похожие кейсы" */
+
+.page-bg {
+  background-color: #161723;
+}
+
+.other-cases {
+  background-color: #161723;
+  padding: 0px;
+}
+
+/* .other-case-card-container .swiper-slide {
+  max-width: 408px;
+  width: 100%;
+}
+
+.other-case-card {
+  max-width: 408px;
+  width: 100%;
+}
+
+.other-cases-cards {
+  display: flex;
+  padding-left: 200px;
+} */
+
+/* .other-cases {
+  margin-top: 120px;
+}
+
+.other-cases-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.other-cases-header h2 {
+  font-size: 50px;
+  font-weight: 300;
+}
+
+.other-cases-arrows {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.other-cases-arrows button {
+  cursor: pointer;
+  width: 60px; 
+  height: 60px;
+  background-color: #1f202c;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  display: flex;          
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.other-cases-arrows button:hover {
+  color: #009688; 
+}
+
+/* Карточки */
+
+.other-cases-cards {
+  display: flex;
+} 
+
+
+.other-cases__slider{
+  overflow: visible;
+  margin-right: 3.75rem;
+}
+
+.other-cases__slide  {
+  margin-right: 0px;
+}
+
+.other-cases-wrapper .swiper-slide {
+  width: 408px;
 }
