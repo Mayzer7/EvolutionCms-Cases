@@ -11685,12 +11685,18 @@ body::after {
 
 /* Страница "Работает на Эво" */
 
+.works-on-evo-container {
+  padding-bottom: 150px;
+}
+
 .works-on-evo-filters {
   margin-top: 24px;
   display: flex;
   gap: 28px;
   position: relative;
 }
+
+/* Фильтры */
 
 .filter {
   background-color: #1f202c;
@@ -11700,7 +11706,7 @@ body::after {
   width: 100%;
   cursor: pointer;
   position: relative; 
-  z-index: 1;
+  z-index: 0;
   transition: background-color 0.3s ease;
 }
 
@@ -11710,19 +11716,29 @@ body::after {
 }
 
 .filter.open {
+  z-index: 10;
   background-color: rgba(255, 255, 255, 0.07); 
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 
 .filter-name {
-  padding: 16px;
+  padding: 16px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: rgba(255, 255, 255, 0.7);
+}
+
+.filter-name p {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 20px;
   font-weight: 400;
+  padding-right: 12px;
+  line-height: 24px;
 }
 
 .filter-menu {
@@ -11749,12 +11765,19 @@ body::after {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.filter-option p {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .filter-option:hover {
   background-color: rgba(255, 255, 255, 0.07);
 }
 
 .filter.open .filter-menu {
-  max-height: 200px; 
+  max-height: 1000px; 
   opacity: 1;
   pointer-events: auto;
 }
@@ -11789,6 +11812,10 @@ body::after {
 .filter.selected .reset-filter {
   opacity: 1;
   pointer-events: auto;
+}
+
+.filter.selected .filter-name p {
+  color: #ffffff; 
 }
 
 .reset-filter:hover {
@@ -11859,6 +11886,7 @@ body::after {
 
 .case-banner {
   line-height: 22px;
+  font-size: 16px;
   font-weight: 300;
   background-color: #009688;
   padding: 4px 10px;
@@ -11869,6 +11897,7 @@ body::after {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 300;
   font-size: 14px;
+  line-height: 20px;
 }
 
 /* Пагинация */
@@ -11933,3 +11962,90 @@ body::after {
   color: rgba(255, 255, 255, 0.5); 
 }
 
+
+/* Адаптив "Работает на Эво" */
+
+@media (max-width: 1300px) {
+  .case-banners .case-banner:nth-child(n + 3) {
+    display: none;
+  }
+
+  .case-banner {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 990px) {
+  .works-on-evo-container {
+    padding-bottom: 80px;
+  }
+
+  /* Фильтры */
+
+  .works-on-evo-filters {
+    margin-top: 20px;
+    gap: 16px;
+  }
+
+  .filter-name {
+    padding: 13px 16px;
+  }
+  
+  .filter-name p {
+    font-size: 16px;
+  }
+
+
+  /* Карточки кейсов */
+
+  .case-cards {
+    margin-top: 30px;
+    column-gap: 16px;
+    row-gap: 40px;
+  }
+
+  .case-title {
+    font-size: 22px;
+    line-height: 22px;
+  }
+
+  .case-desc p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .case-data p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  /* Пагинация */
+
+  .case-pagination {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 960px) {
+  .case-banners .case-banner:nth-child(n + 3) {
+    display: flex;
+  }
+
+  .works-on-evo-filters {
+    flex-direction: column;
+  }
+
+  .filter {
+    max-width: 100%;
+  }
+
+  .case-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .case-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

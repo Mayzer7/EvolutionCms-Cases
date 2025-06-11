@@ -9069,6 +9069,19 @@ function initFilters() {
       filter.classList.remove('selected');
     });
   });
+
+  // Клик из вне фильтров закрывает их
+  
+  document.addEventListener('click', function (event) {
+    const isClickInsideFilter = event.target.closest('.filter');
+
+    if (!isClickInsideFilter) {
+      // Закрываем все открытые фильтры
+      document.querySelectorAll('.filter.open').forEach(f => {
+        f.classList.remove('open');
+      });
+    }
+  });
 }
 
 initFilters();
