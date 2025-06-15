@@ -4584,8 +4584,8 @@ function initSliders() {
       modules: [Navigation],
       observer: true,
       observeParents: true,
-      slidesPerView: 2.85,
-      spaceBetween: 30,
+      slidesPerView: 2.84, // По умолчанию (для > 1000px)
+      spaceBetween: 28,
       autoHeight: false,
       speed: 800,
       navigation: {
@@ -4593,20 +4593,26 @@ function initSliders() {
         nextEl: ".companies__button--next"
       },
       breakpoints: {
-        320: {
-          spaceBetween: 20,
-          autoHeight: true
+        0: {
+          spaceBetween: 16,
+          slidesPerView: 1, 
         },
-        470: {
-          spaceBetween: 20
+        800: {
+          slidesPerView: 1, 
         },
-        550: {
-          spaceBetween: 20
+        900: {
+          slidesPerView: 2, 
         },
-        820: {
-          spaceBetween: 20
+        901: {
+          slidesPerView: 2.80, 
+          spaceBetween: 16
         },
-        992: {
+        951: {
+          slidesPerView: 2.82,  
+          spaceBetween: 16
+        },
+        1001: {
+          slidesPerView: 2.84,
           spaceBetween: 28
         }
       }

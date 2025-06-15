@@ -12168,10 +12168,17 @@ body::after {
 
 /* Страница "Открытый кейс" */
 
+.cases__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .case-title-header {
   font-size: 50px;
   line-height: 50px;
   font-weight: 300;
+  padding-right: 20px;
 }
 
 /* Под шапкой */
@@ -12181,7 +12188,7 @@ body::after {
   align-items: center;
   gap: 8px;
   border: 2px solid #009688;
-  padding: 25px 45px;
+  padding: 25px 45px  ;
   border-radius: 100px;
   font-size: 18px;
   font-weight: 400;
@@ -12202,8 +12209,37 @@ body::after {
   fill: #fff;
 }
 
+.mobile-share-button button {
+  margin-top: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid #009688;
+  padding: 16px 53px;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #009688;
+  transition: all 0.3s ease;
+}
+
+.mobile-share-button button:hover {
+  background-color: #009688;
+  color: #fff;
+}
+
+.mobile-share-button button svg path {
+  transition: fill 0.3s ease;
+}
+
+.mobile-share-button button:hover svg path {
+  fill: #fff;
+}
+
 .under-header-desc p {
   font-size: 18px;
+  line-height: 24px;
   font-weight: 300;
   max-width: 800px;
   width: 100%;
@@ -12216,7 +12252,12 @@ body::after {
   gap: 12px;
 }
 
-.under-header-link button {
+.under-header-link p {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.under-header-link a {
   --icon-color: #009688;            
   color: #ffffff;                   
   display: flex;
@@ -12230,12 +12271,12 @@ body::after {
   transition: background-color 0.3s ease;
 }
 
-.under-header-link button svg path {
+.under-header-link a svg path {
   stroke: var(--icon-color);
   transition: stroke 0.3s ease;
 }
 
-.under-header-link button:hover {
+.under-header-link a:hover {
   background-color: #009688;
   --icon-color: #ffffff;
 }
@@ -12299,61 +12340,6 @@ body::after {
   padding: 0px;
 }
 
-/* .other-case-card-container .swiper-slide {
-  max-width: 408px;
-  width: 100%;
-}
-
-.other-case-card {
-  max-width: 408px;
-  width: 100%;
-}
-
-.other-cases-cards {
-  display: flex;
-  padding-left: 200px;
-} */
-
-/* .other-cases {
-  margin-top: 120px;
-}
-
-.other-cases-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.other-cases-header h2 {
-  font-size: 50px;
-  font-weight: 300;
-}
-
-.other-cases-arrows {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.other-cases-arrows button {
-  cursor: pointer;
-  width: 60px; 
-  height: 60px;
-  background-color: #1f202c;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
-  display: flex;          
-  align-items: center;
-  justify-content: center;
-
-  color: white;
-  transition: color 0.3s ease;
-}
-
-.other-cases-arrows button:hover {
-  color: #009688; 
-}
-
 /* Карточки */
 
 .other-cases-cards {
@@ -12372,4 +12358,92 @@ body::after {
 
 .other-cases-wrapper .swiper-slide {
   width: 408px;
+}
+
+.link-svg {
+  width: 24px;
+  height: 24px;
+}
+
+
+/* Адаптив страницы "Открытый кейс" */
+
+@media (max-width: 1150px) {
+  .header-right-side button {
+    padding: 20px 53px;
+    font-size: 16px;  
+  }
+
+  .under-header-desc p {
+    margin-top: 16px;
+    line-height: 22px;
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .open-case-banner p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .under-header-link p {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .open-case-banner {
+    padding: 2px 8px;
+  }
+
+  .link-svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .case-images {
+    margin-top: 36px;
+  }
+
+  /* Похожие кейсы */
+
+  .case-title p {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .case-desc p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .case-data p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .cases-navigation {
+    display: flex;
+  }
+}
+
+@media (max-width: 750px) {
+  .header-right-side button {
+    display: none;
+  }
+
+  .mobile-share-button button {
+    display: flex;
+  }
+
+  .case-images {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .mobile-share-button button {
+    width: 100%;
+  }
 }
