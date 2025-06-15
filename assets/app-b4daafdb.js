@@ -4595,13 +4595,19 @@ function initSliders() {
       breakpoints: {
         0: {
           spaceBetween: 16,
-          slidesPerView: 1, 
+          slidesPerView: 0.91, 
+        },
+        470: {
+          slidesPerView: 0.91, 
+        },
+        550: {
+          slidesPerView: 1.9, 
         },
         800: {
-          slidesPerView: 1, 
+          slidesPerView: 1.9, 
         },
         900: {
-          slidesPerView: 2, 
+          slidesPerView: 1.9, 
         },
         901: {
           slidesPerView: 2.80, 
@@ -9072,6 +9078,27 @@ menuInit();
 
 // Скрипты для страниц "Работает на Эво" и "Откртый кейс"
 
+// Скелетон
+function initSkeleton() {
+  const skeleton = document.getElementById('skeleton'); 
+
+  if (skeleton) {
+    document.body.classList.add('no-scroll');
+
+    if (skeleton) {
+      window.addEventListener('load', () => {
+        skeleton.classList.add('hidden');
+
+        setTimeout(() => {
+          skeleton.remove();
+          document.body.classList.remove('no-scroll');
+        }, 500); 
+      });
+    }
+  }
+}
+
+
 // Работает на Эво
 
 // Фильтры
@@ -9248,8 +9275,10 @@ function initShareModal() {
 }
 
 
+
 // Вызовы функций
 
+initSkeleton();
 initFilters(); 
 initBanners(); 
 initShareModal();

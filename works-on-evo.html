@@ -10,7 +10,12 @@
 	<link rel="icon" href="img/favicon.png" type="image/x-icon">
 </head>
     <body>
-            <div class="wrapper">
+        <!-- Скелетон -->
+        <div id="skeleton">
+            <img src="img/logo.png" alt="Логотип" class="skeleton__logo" />
+        </div>
+
+        <div class="wrapper">
                 <header class="header ">
                     <div class="header__container">
                         <div class="header__body">
@@ -154,7 +159,7 @@
                         <section class="hero">
                             <div class="hero__container">
                                 <div class="hero__content__ambassadors">
-                                    <div class="article__container">
+                                    <div class="article__container article__padding-mobile">
                                         <ul class="article__breadcrumb breadcrumb article__ambassadors">
                                             <li class="breadcrumb__item"><a href="main.html">Главная</a></li>
                                             <li class="breadcrumb__item breadcrumb__item--active breadcrumb-ambassadors">Работает на Evolution CMS </li>
@@ -286,7 +291,7 @@
                                         </div>
 
                                         <div class="case-cards">
-                                            <a href="#">
+                                            <a href="open-case.html">
                                                 <div class="case-card">
                                                     <div class="case-img">
                                                         <img src="img/works-on-evo/1.png" alt="">
@@ -321,7 +326,7 @@
                                                 </div>
                                             </a>
 
-                                            <a href="#">
+                                            <a href="open-case.html">
                                                 <div class="case-card">
                                                     <div class="case-img">
                                                         <img src="img/works-on-evo/2.png" alt="">
@@ -358,7 +363,7 @@
                                                 </div>
                                             </a>
 
-                                            <a href="#">
+                                            <a href="open-case.html">
                                                 <div class="case-card">
                                                     <div class="case-img">
                                                         <img src="img/works-on-evo/1.png" alt="">
@@ -400,7 +405,7 @@
                                                 </div>
                                             </a>
 
-                                            <a href="#">
+                                            <a href="open-case.html">
                                                 <div class="case-card">
                                                     <div class="case-img">
                                                         <img src="img/works-on-evo/1.png" alt="">
@@ -440,7 +445,7 @@
                                                 </div>
                                             </a>
 
-                                            <a href="#">
+                                            <a href="open-case.html">
                                                 <div class="case-card">
                                                     <div class="case-img">
                                                         <img src="img/works-on-evo/2.png" alt="">
@@ -480,7 +485,7 @@
                                                 </div>
                                             </a>
 
-                                            <a href="#">
+                                            <a href="open-case.html">
                                                 <div class="case-card">
                                                     <div class="case-img">
                                                         <img src="img/works-on-evo/1.png" alt="">
@@ -636,50 +641,50 @@
                     </div>
                 </footer>
             </div>
+
             <div id="popup-question" aria-hidden="true" class="popup">
-        <div class="popup__wrapper">
-            <div class="popup__content">
-                <button data-close type="button" class="popup__close">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18"
-                            stroke="black"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </button>
-                <div class="popup__body">
-                    <form action="#" class="popup__form popup-form">
-                        <h3 class="popup-form__title">Задайте свой вопрос</h3>
-                        <p class="popup-form__description">
-                            Если у вас возникли вопросы или вам необходима дополнительная информация о нашей продукции, наши
-                            специалисты с удовольствием помогут вам.
-                        </p>
-                        <div class="popup-form__inputs">
-                            <div class="popup-form__input">
-                                <input autocomplete="off" type="text" name="name" placeholder="Ваше имя" />
-                            </div>
-                            <div class="popup-form__input">
-                                <input autocomplete="off" type="email" name="email" placeholder="Электронная почта" />
-                            </div>
-                            <div class="popup-form__textarea">
-                                <textarea placeholder="Напишите вопрос..."></textarea>
-                            </div>
+                <div class="popup__wrapper">
+                    <div class="popup__content">
+                        <button data-close type="button" class="popup__close">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18"
+                                    stroke="black"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="popup__body">
+                            <form action="#" class="popup__form popup-form">
+                                <h3 class="popup-form__title">Задайте свой вопрос</h3>
+                                <p class="popup-form__description">
+                                    Если у вас возникли вопросы или вам необходима дополнительная информация о нашей продукции, наши
+                                    специалисты с удовольствием помогут вам.
+                                </p>
+                                <div class="popup-form__inputs">
+                                    <div class="popup-form__input">
+                                        <input autocomplete="off" type="text" name="name" placeholder="Ваше имя" />
+                                    </div>
+                                    <div class="popup-form__input">
+                                        <input autocomplete="off" type="email" name="email" placeholder="Электронная почта" />
+                                    </div>
+                                    <div class="popup-form__textarea">
+                                        <textarea placeholder="Напишите вопрос..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="popup-form__footer">
+                                    <div class="popup-form__policy">
+                                        Нажимая на кнопку “отправить”, вы соглашаетесь с
+                                        <a href="#">политикой конфиденциальности</a>
+                                    </div>
+                                    <button type="submit" class="popup-form__button">Отправить</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="popup-form__footer">
-                            <div class="popup-form__policy">
-                                Нажимая на кнопку “отправить”, вы соглашаетесь с
-                                <a href="#">политикой конфиденциальности</a>
-                            </div>
-                            <button type="submit" class="popup-form__button">Отправить</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <script src="assets/works-on-evo.js"></script>
 	</body>
 </html>

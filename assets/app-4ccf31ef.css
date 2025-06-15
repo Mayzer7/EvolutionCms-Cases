@@ -1068,7 +1068,7 @@ h6 {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  row-gap: 0.375rem;
+  row-gap: 0.575rem;
 }
 
 .breadcrumb__ambassadors {
@@ -1177,6 +1177,10 @@ h6 {
   color: rgba(255, 255, 255, 0.4);
   pointer-events: none;
   text-decoration: none;
+}
+
+.breadcrumb__item--active-gray {
+  color: rgba(20, 23, 35, 0.4);
 }
 
 .news__breadcrumb li:last-child {
@@ -11686,6 +11690,37 @@ body::after {
 
 
 
+/* Скелетон */
+
+#skeleton {
+  position: fixed;
+  inset: 0;                
+  background: #161723;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.4s ease;
+}
+
+.skeleton__logo {
+  width: 190px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%     { transform: scale(1.05); opacity: 0.7; }
+}
+
+body.loaded {
+  overflow: auto;
+}
+#skeleton.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 
 
 /* Страница "Работает на Эво" */
@@ -12274,6 +12309,7 @@ body::after {
   font-size: 14px;
   font-weight: 300;
   transition: background-color 0.3s ease;
+  word-break: break-all;
 }
 
 .under-header-link a svg path {
@@ -12644,6 +12680,7 @@ body::after {
   }
 
   .under-header-link p {
+    white-space: nowrap;
     font-size: 16px;
     line-height: 22px;
   }
@@ -12697,10 +12734,23 @@ body::after {
   .case-images {
     margin-top: 20px;
   }
+
+  .under-header-desc {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 @media (max-width: 500px) {
   .mobile-share-button button {
     width: 100%;
   }
+}
+
+/* Адаптив отступа хлебных крошек */
+
+@media (max-width: 769px) {
+  .article__padding-mobile {
+  padding: 0 2px;
+}
 }
