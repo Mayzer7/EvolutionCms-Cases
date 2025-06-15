@@ -12370,6 +12370,7 @@ body::after {
   height: 24px;
 }
 
+
 /* Модальное окно "Поделиться" */
 
 .modal-overlay {
@@ -12529,6 +12530,7 @@ body::after {
   font-size: 14px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.3);
+
 }
 
 .copy-link-container button svg path {
@@ -12539,6 +12541,11 @@ body::after {
 .copy-link-container button:hover svg path {
   fill: #009688;
   opacity: 1;
+}
+
+.copy-link-text {
+  word-break: break-all;
+  padding-right: 20px;
 }
 
 
