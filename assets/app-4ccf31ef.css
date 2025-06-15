@@ -12566,7 +12566,6 @@ body.loaded {
   font-size: 14px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.3);
-
 }
 
 .copy-link-container button svg path {
@@ -12735,9 +12734,14 @@ body.loaded {
     margin-top: 20px;
   }
 
-  .under-header-desc {
+  .under-header-desc p,
+  .under-header-link p {
     font-size: 14px;
     line-height: 20px;
+  }
+
+  .under-header-link a {
+    padding: 6px 16px 6px 8px;
   }
 }
 
@@ -12751,6 +12755,6 @@ body.loaded {
 
 @media (max-width: 769px) {
   .article__padding-mobile {
-  padding: 0 2px;
-}
+    padding: 0 2px;
+  }
 }
