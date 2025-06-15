@@ -11,7 +11,7 @@
 </head>
     <body>
             <div class="wrapper">
-                <header class="header ">
+                <header class="header">
                     <div class="header__container">
                         <div class="header__body">
                             <a href="/" class="header__logo">
@@ -173,7 +173,7 @@
                                             </div>
 
                                             <div class="header-right-side">
-                                                <button>
+                                                <button class="share-button">
                                                     Поделиться
                                                 
                                                     <svg class="link-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -758,54 +758,115 @@
                         </div>
                     </div>
                 </footer>
+            </div>
+
+            <!-- Модальное окно "Поделиться" -->
+            <div class="modal-overlay" id="modalOverlay">
+                <div class="modal-window">
+                    <button class="modal-close">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 13L7 7M7 7L1 1M7 7L13 1M7 7L1 13" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    
+                    <p class="modal-share-title">
+                        Поделиться
+                    </p>
+
+                    <div class="share-icons">
+                        <div class="share-icon">
+                            <a href="#" class="vk-share-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.5471 4.82029C19.3221 5.52779 19.0188 6.14362 18.6388 6.70279L18.6546 6.67779C18.2813 7.30001 17.8354 8.0189 17.3171 8.83445C16.8726 9.47834 16.6374 9.81167 16.6113 9.83445C16.4963 9.97862 16.4163 10.1553 16.3888 10.3495L16.3879 10.3553C16.4104 10.532 16.4921 10.6861 16.6113 10.8011L16.9446 11.1728C18.7279 13.0056 19.731 14.2689 19.9538 14.9628C19.9829 15.0395 19.9996 15.1278 19.9996 15.2203C19.9996 15.382 19.9479 15.5311 19.8604 15.6536L19.8621 15.6511C19.7154 15.802 19.5104 15.8953 19.2838 15.8953C19.2588 15.8953 19.2329 15.8945 19.2088 15.892H19.2121H17.0196C17.0188 15.892 17.0171 15.892 17.0154 15.892C16.7346 15.892 16.4763 15.7936 16.2738 15.6303L16.2763 15.632C15.9813 15.3895 15.7188 15.127 15.4838 14.842L15.4763 14.832C15.0924 14.3981 14.7518 14.0328 14.4546 13.7361C13.4646 12.795 12.734 12.3245 12.2629 12.3245C12.2454 12.3228 12.2254 12.322 12.2046 12.322C12.0671 12.322 11.9388 12.3645 11.8329 12.437L11.8354 12.4353C11.7488 12.5436 11.6963 12.6836 11.6963 12.8345C11.6963 12.8645 11.6979 12.8928 11.7021 12.922V12.9186C11.6796 13.1803 11.6663 13.4845 11.6663 13.792C11.6663 13.8911 11.6679 13.9895 11.6704 14.0878V14.0736V15.0395C11.6788 15.0786 11.6838 15.1236 11.6838 15.1695C11.6838 15.3711 11.5921 15.5511 11.4488 15.6703L11.4479 15.6711C11.1254 15.8186 10.7488 15.9053 10.3513 15.9053C10.2663 15.9053 10.1829 15.9011 10.1004 15.8936L10.1113 15.8945C8.79959 15.8695 7.58293 15.4853 6.54876 14.8378L6.57793 14.8545C5.31876 14.0895 4.27543 13.0936 3.48043 11.917L3.45793 11.882C2.70293 10.8803 1.99876 9.74862 1.39876 8.55529L1.34043 8.42695C0.989596 7.75862 0.626263 6.93695 0.31293 6.09195L0.26293 5.93779C0.13543 5.55779 0.0429297 5.11612 0.00459635 4.65862L0.00292969 4.63779C0.00292969 4.21668 0.250707 4.00612 0.746263 4.00612H2.93793C2.95793 4.00445 2.98126 4.00362 3.00543 4.00362C3.2121 4.00362 3.40293 4.07445 3.55376 4.19362L3.5521 4.19195C3.71876 4.37445 3.8421 4.59862 3.90293 4.84862L3.90543 4.85862C4.30876 5.99779 4.73626 6.95445 5.22793 7.87112L5.1721 7.75695C5.57376 8.56529 6.01793 9.26112 6.5246 9.90362L6.50543 9.87779C6.94987 10.4233 7.29654 10.6961 7.54543 10.6961C7.55293 10.697 7.5621 10.697 7.5721 10.697C7.69543 10.697 7.80293 10.6303 7.86126 10.5303L7.86209 10.5286C7.92376 10.3703 7.95959 10.1861 7.95959 9.99445C7.95959 9.95362 7.95793 9.91279 7.9546 9.87279V9.87779V6.64529C7.9371 6.26445 7.84376 5.90862 7.68793 5.58945L7.69459 5.60529C7.59126 5.38529 7.46709 5.19529 7.31959 5.02612L7.32209 5.02945C7.18543 4.89279 7.0921 4.71362 7.06293 4.51362L7.0621 4.50862C7.0621 4.36695 7.12709 4.23945 7.22876 4.15612L7.2296 4.15529C7.33043 4.06279 7.46543 4.00695 7.61293 4.00695H7.61959H11.0746C11.0929 4.00445 11.1138 4.00362 11.1354 4.00362C11.2979 4.00362 11.4438 4.07695 11.5404 4.19195L11.5413 4.19279C11.6271 4.34945 11.6779 4.53695 11.6779 4.73529C11.6779 4.76695 11.6763 4.79779 11.6738 4.82862V4.82445V9.13529C11.6721 9.15529 11.6713 9.17862 11.6713 9.20195C11.6713 9.35529 11.7138 9.49945 11.7871 9.62195L11.7854 9.61862C11.8463 9.70862 11.9479 9.76695 12.0629 9.76695C12.2096 9.75695 12.3438 9.70862 12.4563 9.63195L12.4538 9.63362C12.6804 9.47779 12.8754 9.30029 13.0446 9.09945L13.0479 9.09529C13.5538 8.52362 14.0204 7.89195 14.4271 7.22029L14.4596 7.16195C14.7463 6.68695 15.0563 6.10195 15.3371 5.50112L15.3888 5.37862L15.7604 4.63529C15.8896 4.26362 16.2363 4.00195 16.6438 4.00195C16.6596 4.00195 16.6754 4.00195 16.6913 4.00279H16.6888H18.8813C19.4735 4.00279 19.6949 4.27529 19.5471 4.82029Z" fill="#009688"/>
+                                </svg>
+                            </a>    
+
+                            <p>VK</p>
+                        </div>
+
+                        <div class="share-icon">
+                            <a href="#" class="tg-share-icon">
+                                <svg class="tg-icon" width="20" height="20" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.591 1.04574C16.591 1.04574 18.2099 0.414488 18.075 1.94753C18.03 2.57878 17.6253 4.78816 17.3105 7.17791L16.2313 14.2569C16.2313 14.2569 16.1414 15.294 15.3319 15.4744C14.5225 15.6547 13.3083 14.8431 13.0835 14.6627C12.9036 14.5275 9.71084 12.4984 8.58659 11.5065C8.2718 11.2359 7.91205 10.6949 8.63155 10.0636L13.3533 5.5547C13.8929 5.01362 14.4325 3.75112 12.1841 5.28416L5.88847 9.56766C5.88847 9.56766 5.16897 10.0185 3.81992 9.61274L0.896933 8.71095C0.896933 8.71095 -0.182321 8.03462 1.6614 7.35824C6.1583 5.23903 11.6895 3.07474 16.591 1.04574Z" fill="#009688"/>
+                                </svg>
+                            </a>
+
+                            <p>Telegram</p>
+                        </div>
                     </div>
-                </main>  
+
+                    <div class="copy-link">
+                        <p>Ссылка</p>
+
+                        <div class="copy-link-container">
+                            <!-- Ссылка на кейс -->
+                            <a href="https://evocms.ru/" target="_blank" class="copy-link-text">https://evocms.ru/</a>
+
+                            <button class="copy-link-button">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_2502_1028)">
+                                    <path d="M20 20H0V3C0 2.20435 0.31607 1.44129 0.87868 0.87868C1.44129 0.31607 2.20435 0 3 0L17 0C17.7956 0 18.5587 0.31607 19.1213 0.87868C19.6839 1.44129 20 2.20435 20 3V20ZM22 4.184V22H4V24H24V7C23.9974 6.38174 23.8039 5.77937 23.4459 5.2753C23.0879 4.77123 22.5829 4.39008 22 4.184Z" fill="black" fill-opacity="1"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath id="clip0_2502_1028">
+                                    <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Уведомление о скопированной ссылке -->
+            <div id="copyNotification" class="modal-notification">
+                <p>Ссылка скопирована</p>
             </div>
 
             <div id="popup-question" aria-hidden="true" class="popup">
-        <div class="popup__wrapper">
-            <div class="popup__content">
-                <button data-close type="button" class="popup__close">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18"
-                            stroke="black"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </button>
-                <div class="popup__body">
-                    <form action="#" class="popup__form popup-form">
-                        <h3 class="popup-form__title">Задайте свой вопрос</h3>
-                        <p class="popup-form__description">
-                            Если у вас возникли вопросы или вам необходима дополнительная информация о нашей продукции, наши
-                            специалисты с удовольствием помогут вам.
-                        </p>
-                        <div class="popup-form__inputs">
-                            <div class="popup-form__input">
-                                <input autocomplete="off" type="text" name="name" placeholder="Ваше имя" />
-                            </div>
-                            <div class="popup-form__input">
-                                <input autocomplete="off" type="email" name="email" placeholder="Электронная почта" />
-                            </div>
-                            <div class="popup-form__textarea">
-                                <textarea placeholder="Напишите вопрос..."></textarea>
-                            </div>
+                <div class="popup__wrapper">
+                    <div class="popup__content">
+                        <button data-close type="button" class="popup__close">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18"
+                                    stroke="black"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="popup__body">
+                            <form action="#" class="popup__form popup-form">
+                                <h3 class="popup-form__title">Задайте свой вопрос</h3>
+                                <p class="popup-form__description">
+                                    Если у вас возникли вопросы или вам необходима дополнительная информация о нашей продукции, наши
+                                    специалисты с удовольствием помогут вам.
+                                </p>
+                                <div class="popup-form__inputs">
+                                    <div class="popup-form__input">
+                                        <input autocomplete="off" type="text" name="name" placeholder="Ваше имя" />
+                                    </div>
+                                    <div class="popup-form__input">
+                                        <input autocomplete="off" type="email" name="email" placeholder="Электронная почта" />
+                                    </div>
+                                    <div class="popup-form__textarea">
+                                        <textarea placeholder="Напишите вопрос..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="popup-form__footer">
+                                    <div class="popup-form__policy">
+                                        Нажимая на кнопку “отправить”, вы соглашаетесь с
+                                        <a href="#">политикой конфиденциальности</a>
+                                    </div>
+                                    <button type="submit" class="popup-form__button">Отправить</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="popup-form__footer">
-                            <div class="popup-form__policy">
-                                Нажимая на кнопку “отправить”, вы соглашаетесь с
-                                <a href="#">политикой конфиденциальности</a>
-                            </div>
-                            <button type="submit" class="popup-form__button">Отправить</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <script src="assets/works-on-evo.js"></script>
 	</body>
 </html>

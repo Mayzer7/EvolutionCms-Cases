@@ -9068,3 +9068,188 @@ switcherInit();
 spoilers();
 menuInit();
 
+
+
+// Скрипты для страниц "Работает на Эво" и "Откртый кейс"
+
+// Работает на Эво
+
+// Фильтры
+function initFilters() {
+  document.querySelectorAll('.filter').forEach(filter => {
+    const filterName = filter.querySelector('.filter-name');
+    const textEl = filter.querySelector('p');
+    const options = filter.querySelectorAll('.filter-option');
+    const resetBtn = filter.querySelector('.reset-filter');
+
+    const defaultText = textEl.textContent;
+
+    // Клик по заголовку
+    filterName.addEventListener('click', (e) => {
+      // Игнорировать клик по кресту
+      if (e.target === resetBtn) return;
+
+      const isOpen = filter.classList.contains('open');
+
+      // Закрыть все фильтры
+      document.querySelectorAll('.filter.open').forEach(f => f.classList.remove('open'));
+
+      if (!isOpen) {
+        filter.classList.add('open');
+      }
+    });
+
+    // Клик по опции
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        textEl.textContent = option.textContent;
+        filter.classList.remove('open');
+        filter.classList.add('selected'); 
+      });
+    });
+
+    // Клик по крестику
+    resetBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      textEl.textContent = defaultText;
+      filter.classList.remove('selected');
+    });
+  });
+
+  // Клик из вне фильтров закрывает их
+  document.addEventListener('click', function (event) {
+    const isClickInsideFilter = event.target.closest('.filter');
+
+    if (!isClickInsideFilter) {
+      // Закрываем все открытые фильтры
+      document.querySelectorAll('.filter.open').forEach(f => {
+        f.classList.remove('open');
+      });
+    }
+  });
+}
+
+// Баннеры под карточками
+function initBanners() {
+    document.querySelectorAll('.case-banners-wrapper').forEach(wrapper => {
+    const banners = wrapper.querySelector('.case-banners');
+    const toggle  = wrapper.querySelector('.case-banner-toggle');
+
+    let isExpanded = false;
+
+    // Функция для получения высоты свернутого состояния
+    function getCollapsedHeight() {
+        const firstBanner = banners.querySelector('.case-banner');
+        return firstBanner ? firstBanner.offsetHeight : 30;
+    }
+
+    // Установка высоты в зависимости от состояния
+    function updateMaxHeight() {
+        const collapsedHeight = getCollapsedHeight();
+
+        if (isExpanded) {
+        banners.style.maxHeight = banners.scrollHeight + 'px';
+        } else {
+        banners.style.maxHeight = collapsedHeight + 'px';
+        }
+
+        if (banners.scrollHeight > collapsedHeight) {
+        toggle.style.display = 'block';
+        } else {
+        toggle.style.display = 'none';
+        }
+    }
+
+    updateMaxHeight();
+
+    // Обработка клика
+    toggle.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        isExpanded = !isExpanded;
+        toggle.classList.toggle('active', isExpanded);
+        updateMaxHeight();
+    });
+
+    // Обработка изменения размера окна
+    window.addEventListener('resize', () => {
+        clearTimeout(wrapper._resizeTimeout);
+        wrapper._resizeTimeout = setTimeout(() => {
+        updateMaxHeight();
+        }, 100);
+    });
+    });
+}
+
+function initShareModal() {
+  const modalShare = document.getElementById('modalOverlay');
+  const closeBtn = document.querySelector('.modal-close');
+  const copyBtn = document.querySelector(".copy-link-button");
+  const link = document.querySelector(".copy-link-text");
+  const popup = document.getElementById("copyNotification");
+
+  if (!modalShare) return;
+
+  // Открытие модалки с обоих "Поделиться" кнопок
+  const openButtons = document.querySelectorAll('.share-button, .mobile-share-button button');
+  openButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      modalShare.classList.add('active');
+      document.body.classList.add('no-scroll');
+    });
+  });
+
+  // Закрытие по крестику
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      modalShare.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    });
+  }
+
+  // Закрытие по фону
+  modalShare.addEventListener('click', (e) => {
+    if (e.target === modalShare) {
+      modalShare.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  });
+
+  // Копирование ссылки
+  if (copyBtn && link && popup) {
+    copyBtn.addEventListener("click", function () {
+      const tempInput = document.createElement("input");
+      tempInput.value = link.textContent; // копируем текст, а не href
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+
+      popup.classList.add("show");
+      setTimeout(() => popup.classList.remove("show"), 2000);
+    });
+  }
+
+  // Отправка ссылки в VK и Telegram
+  const rawText = document.querySelector('.copy-link-text').textContent;
+  const urlToShare = rawText.trim().replace(/\s+/g, '');
+
+  const vkBtn = document.querySelector('.vk-share-icon');
+  const tgBtn = document.querySelector('.tg-share-icon');
+
+  // VK share 
+  vkBtn.href = `https://vk.com/share.php?url=${encodeURIComponent(urlToShare)}`;
+  vkBtn.target = "_blank";
+
+  // Telegram share
+  tgBtn.href = `https://t.me/share/url?url=${encodeURIComponent(urlToShare)}`;
+  tgBtn.target = '_blank';
+}
+
+
+// Вызовы функций
+
+initFilters(); 
+initBanners(); 
+initShareModal();
