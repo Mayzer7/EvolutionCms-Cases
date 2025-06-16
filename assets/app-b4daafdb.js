@@ -9076,28 +9076,40 @@ menuInit();
 
 
 
-// Скрипты для страниц "Работает на Эво" и "Откртый кейс"
+// Скрипты для страниц "Работает на Эво" и "Открытый кейс"
 
 // Скелетон
 function initSkeleton() {
-  const skeleton = document.getElementById('skeleton'); 
-
-  if (skeleton) {
-    document.body.classList.add('no-scroll');
-
-    if (skeleton) {
-      window.addEventListener('load', () => {
-        skeleton.classList.add('hidden');
-
-        setTimeout(() => {
-          skeleton.remove();
-          document.body.classList.remove('no-scroll');
-        }, 500); 
-      });
-    }
+ document.addEventListener('DOMContentLoaded', () => {
+  const containers = Array.from(document.querySelectorAll('.image-container'));
+                
+  function loadNext(index = 0) {
+    if (index >= containers.length) return;
+    
+    const container = containers[index];
+    const img = container.querySelector('img');
+    const skeleton = container.querySelector('.skeleton');
+                    
+    // Подставляем реальный src и ждём загрузки
+    img.src = img.dataset.src;
+    img.onload = () => {
+      // После загрузки убираем скелетон и показываем картинку
+      skeleton.remove();
+      img.style.opacity = '1';
+      
+      // Переходим к следующей картинке с небольшой задержкой
+      setTimeout(() => loadNext(index + 1), 200);
+    };
+    img.onerror = () => {
+      // На случай ошибки — тоже убираем скелетон
+      skeleton.remove();
+    };
   }
-}
 
+  // Стартуем последовательную загрузку
+  loadNext();
+  });
+}
 
 // Работает на Эво
 
@@ -9212,20 +9224,18 @@ function initBanners() {
 function initShareModal() {
   const modalShare = document.getElementById('modalOverlay');
   const closeBtn = document.querySelector('.modal-close');
-  const copyBtn = document.querySelector(".copy-link-button");
-  const link = document.querySelector(".copy-link-text");
-  const popup = document.getElementById("copyNotification");
+  const copyBtn = document.querySelector('.copy-link-button');
+  const linkElem = document.querySelector('.copy-link-text');
+  const popup = document.getElementById('copyNotification');
 
   if (!modalShare) return;
 
   // Открытие модалки с обоих "Поделиться" кнопок
-  const openButtons = document.querySelectorAll('.share-button, .mobile-share-button button');
-  openButtons.forEach(button => {
-    button.addEventListener('click', () => {
+  document.querySelectorAll('.share-button, .mobile-share-button button')
+    .forEach(btn => btn.addEventListener('click', () => {
       modalShare.classList.add('active');
       document.body.classList.add('no-scroll');
-    });
-  });
+    }));
 
   // Закрытие по крестику
   if (closeBtn) {
@@ -9235,43 +9245,59 @@ function initShareModal() {
     });
   }
 
-  // Закрытие по фону
-  modalShare.addEventListener('click', (e) => {
+  // Закрытие по клику на фон
+  modalShare.addEventListener('click', e => {
     if (e.target === modalShare) {
       modalShare.classList.remove('active');
       document.body.classList.remove('no-scroll');
     }
   });
 
-  // Копирование ссылки
-  if (copyBtn && link && popup) {
-    copyBtn.addEventListener("click", function () {
-      const tempInput = document.createElement("input");
-      tempInput.value = link.textContent; // копируем текст, а не href
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempInput);
+  // Вспомогательная функция для копирования и показа уведомления
+  function copyToClipboard(text) {
+    const tmpInput = document.createElement('input');
+    tmpInput.value = text;
+    document.body.appendChild(tmpInput);
+    tmpInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tmpInput);
 
-      popup.classList.add("show");
-      setTimeout(() => popup.classList.remove("show"), 2000);
+    if (popup) {
+      popup.classList.add('show');
+      setTimeout(() => popup.classList.remove('show'), 2000);
+    }
+  }
+
+  // Перехват клика по ссылке: отменяем переход, копируем и показываем уведомление
+  if (linkElem) {
+    linkElem.addEventListener('click', e => {
+      e.preventDefault();
+      copyToClipboard(linkElem.textContent.trim());
     });
   }
 
-  // Отправка ссылки в VK и Telegram
-  const rawText = document.querySelector('.copy-link-text').textContent;
-  const urlToShare = rawText.trim().replace(/\s+/g, '');
+  // Копирование по кнопке
+  if (copyBtn && linkElem) {
+    copyBtn.addEventListener('click', () => {
+      copyToClipboard(linkElem.textContent.trim());
+    });
+  }
+
+  // Настройка кнопок VK и Telegram
+  const rawText = linkElem ? linkElem.textContent.trim() : '';
+  const urlToShare = encodeURIComponent(rawText.replace(/\s+/g, ''));
 
   const vkBtn = document.querySelector('.vk-share-icon');
+  if (vkBtn) {
+    vkBtn.href = `https://vk.com/share.php?url=${urlToShare}`;
+    vkBtn.target = '_blank';
+  }
+
   const tgBtn = document.querySelector('.tg-share-icon');
-
-  // VK share 
-  vkBtn.href = `https://vk.com/share.php?url=${encodeURIComponent(urlToShare)}`;
-  vkBtn.target = "_blank";
-
-  // Telegram share
-  tgBtn.href = `https://t.me/share/url?url=${encodeURIComponent(urlToShare)}`;
-  tgBtn.target = '_blank';
+  if (tgBtn) {
+    tgBtn.href = `https://t.me/share/url?url=${urlToShare}`;
+    tgBtn.target = '_blank';
+  }
 }
 
 
