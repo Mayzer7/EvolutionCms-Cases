@@ -2988,6 +2988,8 @@ h6 {
 .footer {
   background-color: #090a14;
   color: #fff;
+  z-index: 5;
+  position: relative;
 }
 @media (min-width: 82.5em) {
   .footer {
@@ -11178,9 +11180,7 @@ body::after {
 .ambassador-person-second-card {
   flex: 1 1 300px; 
   max-width: 630px;
-  
   height: auto;
-  min-width: 340px;
   min-height: 332px;
 }
 
@@ -12647,6 +12647,7 @@ body::after {
 }
 
 .modal-notification p {
+  white-space: nowrap;
   font-size: 14px;
 }
 
