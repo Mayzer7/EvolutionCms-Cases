@@ -12112,11 +12112,13 @@ body::after {
   .pagination-page {
     font-size: 16px;
     width: 50px;
+    min-width: 50px;
     height: 50px;
   }
 
   .left-arrow-pagination, .right-arrow-pagination {
     width: 50px;
+    min-width: 50px;
     height: 50px;
   }
 }
