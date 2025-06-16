@@ -3946,11 +3946,7 @@ h6 {
     }
   }
 }
-@media (max-width: 23.4375em) {
-  .hero__download {
-    min-width: 10rem;
-  }
-}
+
 @media (min-width: 82.5em) {
   .hero__download {
     height: 4.375rem;
@@ -6146,11 +6142,7 @@ h6 {
     }
   }
 }
-@media (max-width: 23.4375em) {
-  .actions__download {
-    min-width: 10.4375rem;
-  }
-}
+
 @media (min-width: 82.5em) {
   .actions__download {
     height: 4.375rem;
