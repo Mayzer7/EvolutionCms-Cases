@@ -9141,9 +9141,37 @@ function initFilters() {
     // Клик по опции
     options.forEach(option => {
       option.addEventListener('click', () => {
-        textEl.textContent = option.textContent;
+        const selectedValue = option.querySelector('p')?.textContent.trim();
+
+        textEl.textContent = selectedValue;
         filter.classList.remove('open');
-        filter.classList.add('selected'); 
+        filter.classList.add('selected');
+
+        const payload = {
+          filter: filter.dataset.name,
+          value: selectedValue
+        };
+
+        // Для бекенда
+        console.log('Отправляем на сервер:', payload); 
+
+        fetch('/api/apply-filter', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Ошибка при запросе');
+          return response.json();
+        })
+        .then(data => {
+          console.log('Ответ от сервера:', data); 
+        })
+        .catch(err => {
+          console.error('Ошибка:', err);
+        });
       });
     });
 

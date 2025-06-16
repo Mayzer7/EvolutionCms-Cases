@@ -55,7 +55,6 @@ a:active {
 html,
 body {
   height: 100%;
-  min-width: 375px;
 }
 body {
   color: #141723;
@@ -2205,7 +2204,7 @@ h6 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   min-height: 7.5rem;
-  gap: 2.5rem;
+  gap: 1rem;
   z-index: 9999;
 }
 @media (min-width: 82.5em) {
@@ -12152,7 +12151,7 @@ body::after {
 
 @media (max-width: 515px) {
   /* Скрываем цифру 3 в пагинации */
-  .hide-number {
+  .hide-number-three {
     display: none;
   }
 
@@ -12161,6 +12160,12 @@ body::after {
   }
 }
 
+@media (max-width: 375px) {
+  /* Скрываем цифру 2 в пагинации */
+  .hide-number-two {
+    display: none;
+  }
+}
 
 
 
