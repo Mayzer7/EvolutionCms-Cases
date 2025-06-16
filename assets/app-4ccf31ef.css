@@ -3903,6 +3903,10 @@ h6 {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
+.hero__download span {
+  padding: 0px 10px;
+}
 @media (min-width: 82.5em) {
   .hero__download {
     font-size: 1.125rem;
@@ -3976,20 +3980,7 @@ h6 {
     padding-left: 1.25rem;
   }
 }
-@media (min-width: 23.4375em) and (max-width: 82.5em) {
-  @supports (padding-left: clamp( 0.0000000625rem , -0.4960316587rem  +  2.1164020106vw , 1.25rem )) {
-    .hero__download {
-      padding-left: clamp( 0.0000000625rem , -0.4960316587rem  +  2.1164020106vw , 1.25rem );
-    }
-  }
-  @supports not (padding-left: clamp( 0.0000000625rem , -0.4960316587rem  +  2.1164020106vw , 1.25rem )) {
-    .hero__download {
-      padding-left: calc(
-        0.0000000625rem + 1.2499999375 * (100vw - 23.4375rem) / 59.0625
-      );
-    }
-  }
-}
+
 @media (max-width: 23.4375em) {
   .hero__download {
     padding-left: 0.0000000625rem;
@@ -4000,20 +3991,7 @@ h6 {
     padding-right: 1.25rem;
   }
 }
-@media (min-width: 23.4375em) and (max-width: 82.5em) {
-  @supports (padding-right: clamp( 0.0000000625rem , -0.4960316587rem  +  2.1164020106vw , 1.25rem )) {
-    .hero__download {
-      padding-right: clamp( 0.0000000625rem , -0.4960316587rem  +  2.1164020106vw , 1.25rem );
-    }
-  }
-  @supports not (padding-right: clamp( 0.0000000625rem , -0.4960316587rem  +  2.1164020106vw , 1.25rem )) {
-    .hero__download {
-      padding-right: calc(
-        0.0000000625rem + 1.2499999375 * (100vw - 23.4375rem) / 59.0625
-      );
-    }
-  }
-}
+
 @media (max-width: 23.4375em) {
   .hero__download {
     padding-right: 0.0000000625rem;
