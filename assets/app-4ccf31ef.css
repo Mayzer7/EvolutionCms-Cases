@@ -12132,7 +12132,7 @@ body::after {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 360px) {
   /* Скрываем цифру 2 в пагинации */
   .hide-number-two {
     display: none;
@@ -12158,7 +12158,6 @@ body::after {
 
 .case-title-header {
   font-size: 50px;
-  line-height: 50px;
   font-weight: 300;
   padding-right: 20px;
 }
@@ -12686,6 +12685,13 @@ body::after {
   }
 }
 
+@media (max-width: 1000px) {
+  .case-title-header {
+    font-size: 43px;
+    line-height: 115%;
+  }
+}
+
 @media (max-width: 37.5em) {
   .cases-navigation {
     display: flex;
@@ -12713,6 +12719,13 @@ body::after {
 
   .under-header-link a {
     padding: 6px 16px 6px 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .case-title-header {
+    font-size: 32px;
+    line-height: 115%;
   }
 }
 
